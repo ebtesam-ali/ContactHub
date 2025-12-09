@@ -1,0 +1,88 @@
+body {
+  font-family: Inter, sans-serif;
+    background-color: #f8fafc;
+}
+.purple {
+  color: oklch(54.1% 0.281 293.009);
+}
+.bg-purple {
+
+    background-color: color-mix(in oklab, oklch(43.28% 0.281 293.009) 25%, oklch(54.1% 0.281 293.009) 75%);
+}
+.bg-purple-light {
+    background-color: color-mix(in oklab, oklch(90.0% 0.1 293.009) 25%, oklch(95.0% 0.05 293.009) 75%);
+}
+.font-12 {
+  font-size: 12px;
+}
+.font-14 {
+  font-size: 14px;
+}
+.font-16 {
+  font-size: 16px;
+}
+.text-orange {
+  color: oklch(54.594% 0.14942 47.482);
+}
+.bg-orange {
+  background-color: color-mix(in oklab, orange 25%, rgb(251, 155, 66) 75%);
+}
+.bg-orange-light {
+  background-color: color-mix(in oklab, rgb(255, 244, 230) 25%, rgb(255, 237, 222) 75%);
+}
+.bg-red {
+  background-color: color-mix(in oklab, red 25%, rgb(254, 50, 50) 75%);
+}
+.bg-red-light {
+  background-color: color-mix(in oklab, rgb(255, 230, 230) 25%,  rgb(255, 204, 204) 75%);
+}
+.text-gray {
+  color: rgba(128, 128, 128, 0.755);
+}
+.bg-gray{
+  background-color: color-mix(in oklab, rgb(240, 240, 240) 25%, rgb(220, 220, 220) 75%);
+}
+textarea {
+  resize: none;
+}
+.text-red {
+  color: oklch(53.24% 0.318 27.275);
+}
+
+.modal-dialog-scrollable .modal-body {
+  overflow-y: scroll;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar {
+  display: none; 
+}
+.text-blue {
+  color: oklch(53.24% 0.318 246.468);
+}
+.bg-blue {
+  background-color: color-mix(in oklab, rgb(173, 216, 230) 25%, rgb(135, 206, 250) 75%);
+}
+.border-gray {
+  border-color: rgba(128, 128, 128, 0.063);
+}
+.font-8 {
+  font-size: 8px;
+}
+
+.hover-btn-danger:hover {
+  color: red;
+  background-color: color-mix(in oklab, rgb(255, 230, 230) 25%,  rgb(255, 204, 204) 75%) !important;
+}
+.hover-btn-warning:hover {
+  color: orange;
+  background-color: color-mix(in oklab, rgb(255, 244, 230) 25%, rgb(255, 237, 222) 75%) !important;
+}
+.hover-btn-info:hover {
+  color: blue;
+  background-color: color-mix(in oklab, rgb(230, 240, 255) 25%, rgb(210, 230, 255) 75%) !important;
+}
+.cursor-pointer {
+  cursor: pointer !important;
+}
