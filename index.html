@@ -12,11 +12,11 @@
 
   <body>
     <nav
-      class="navbar navbar-expand-lg bg-white py-3 border-bottom shadow-sm fixed-top"
+      class="navbar navbar-expand-lg bg-white py-lg-3 border-bottom shadow-sm fixed-top"
     >
-      <div class="container px-5">
+      <div class="container px-lg-5 d-flex justify-content-between">
         <a class="navbar-brand" href="#">
-          <div class="d-flex align-baseline">
+          <div class="d-flex align-items-center">
             <div class="me-3 bg-purple text-white p-2 rounded-3">
               <i class="fa-solid fa-address-book fw-bold"></i>
             </div>
@@ -24,37 +24,27 @@
               <h1 class="h4 fw-bold m-0">
                 Contact<span class="purple">Hub</span>
               </h1>
-              <p class="text-secondary font-12 m-0">Smart Contact Manager</p>
+              <p class="text-secondary font-12 m-0 d-none d-md-block">Smart Contact Manager</p>
             </div>
           </div>
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        
         <div
-          class="ms-auto d-flex gap-3 align-items-center font-14 text-secondary"
+          class="ms-auto d-flex gap-lg-3 gap-2 align-items-center font-14 text-secondary"
         >
           <button
             type="button"
-            class="btn btn-primary px-3 bg-purple text-white font-16 rounded-3"
+            class="btn btn-primary px-lg-3 bg-purple text-white font-16 rounded-3"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
           >
-            + Add Contact
+            + Add <span class="d-none d-lg-inline">Contact</span>
           </button>
 
-          <a href="#" class="link-secondary me-1"
+          <a href="#" class="link-secondary me-1 d-none d-md-block"
             ><i class="fa-solid fa-bell"></i
           ></a>
-          <a href="#" class="link-secondary me-1"
+          <a href="#" class="link-secondary me-1 d-none d-md-block"
             ><i class="fa-solid fa-gear"></i
           ></a>
           <a href="#" class="link-secondary"
@@ -220,9 +210,9 @@
     </div>
 
     <section>
-      <div class="container py-5 px-5" id="content">
+      <div class="container py-5 px-lg-5 px-3" id="content">
         <div class="row mt-5 font-14 mb-5 g-4">
-          <div class="col-4">
+          <div class="col-lg-4 col-6">
             <div
               class="bg-white d-flex border-1 rounded-4 p-3 align-items-center shadow-sm"
             >
@@ -237,7 +227,7 @@
               </div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-lg-4 col-6">
             <div
               class="bg-white d-flex border-1 rounded-4 p-3 align-items-center shadow-sm"
             >
@@ -250,7 +240,7 @@
               </div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-lg-4 col-6">
             <div
               class="bg-white d-flex border-1 rounded-4 p-3 align-items-center shadow-sm"
             >
@@ -265,7 +255,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-9">
+          <div class="col-lg-9">
             <div class="mb-2">
               <h2 class="fw-bold">All Contacts</h2>
               <p class="text-secondary">
@@ -301,9 +291,9 @@
                 Click "Add Contact" to get started
               </p>
             </div> -->
-            <div id="contacts" class="row flex-wrap d-flex g-3 gab-2"></div>
+            <div id="contacts" class="row flex-wrap d-flex g-3 gab-2 mb-4"></div>
           </div>
-          <div class="col-3">
+          <div class="col-lg-3">
             <div class="d-flex flex-wrap font-12">
               <div class="card rounded-4 mb-4 shadow-sm w-100 border-0">
                 <div
@@ -356,7 +346,7 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="path/to/your/contacts.js"></script>
+    
     <script src="javascript/index.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

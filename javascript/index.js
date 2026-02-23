@@ -1,6 +1,7 @@
 var contactList = [];
 var emergencyList = [];
 var favoriteList = [];
+
 var editingIndex = -1;
 
 if (localStorage.getItem("contactList") !== null) {
@@ -40,6 +41,7 @@ if (localStorage.getItem("favoriteList") !== null) {
 }
 
 function SaveContact(event) {
+    
     event.preventDefault();
 
     var firstName = document.getElementById("contactName").value;
@@ -50,41 +52,42 @@ function SaveContact(event) {
     var notes = document.getElementById("notes").value;
     var isFavorite = document.getElementById("btncheck1").checked;
     var isEmergency = document.getElementById("btncheck2").checked;
-    
-    
+
+
     var imageInput = document.getElementById("contactPhoto");
     var imageName = imageInput.files[0] ? imageInput.files[0].name : null;
     var image = imageName ? `images/${imageName}` : null;
-    
+
     if (!IsPhoneUnique(phone)) {
         Swal.fire({
             icon: "error",
             title: "Duplicate Phone Number",
             text: "A contact with this phone number already exists: The UX Review",
         });
-        return; 
+        return;
     }
-    
-    
+
+
     var contact = {
         firstName: firstName,
         phone: phone,
         email: email,
         address: address,
-        group: group,  
+        group: group,
         notes: notes,
         isFavorite: isFavorite,
         isEmergency: isEmergency,
         image: image
     };
-    
+
     Swal.fire({
-    title: "Added!",
-    icon: "success",
-    draggable: true
-});
+        title: "Added!",
+        icon: "success",
+        draggable: true
+    });
     SaveContactData(contact);
 }
+
 
 function SaveContactData(contact) {
 
@@ -263,7 +266,7 @@ function ClearForm() {
 
     editingIndex = -1;
 
-    
+
     document.getElementById("modalTitle").innerText = "Add New Contact";
 }
 
@@ -317,7 +320,7 @@ function EditContact(indexEdit) {
     document.getElementById("btncheck1").checked = contact.isFavorite;
     document.getElementById("btncheck2").checked = contact.isEmergency;
 
-    
+
     editingIndex = indexEdit;
 
     document.getElementById("modalTitle").innerText = "Edit Contact";
@@ -326,12 +329,13 @@ function EditContact(indexEdit) {
 
 
 function Search() {
-    var query = document.getElementById("searchInput").value.toLowerCase();
+    var toSearch = document.getElementById("searchInput").value.toLowerCase();
     var filteredContacts = contactList.filter(c =>
-        c.firstName.toLowerCase().includes(query) ||
-        c.phone.toLowerCase().includes(query) ||
-        (c.email && c.email.toLowerCase().includes(query))
+        c.firstName.toLowerCase().includes(toSearch) ||
+        c.phone.toLowerCase().includes(toSearch) ||
+        (c.email && c.email.toLowerCase().includes(toSearch))
     );
+    
     DisplayFilteredContacts(filteredContacts);
 }
 
@@ -407,28 +411,28 @@ function DisplayFilteredContacts(filteredContacts) {
 
 function DeleteAlert(indexDel) {
     Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-    if (result.isConfirmed) {
-    DeleteContact(indexDel);
-    Swal.fire({
-        title: "Deleted!",
-        text: "Your file has been deleted.",
-        icon: "success"
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            DeleteContact(indexDel);
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+            });
+        }
     });
-    }
-});
 }
 
 function IsPhoneUnique(phone) {
-    for(var i=0;i<contactList.length;i++){
-        if(contactList[i].phone === phone && editingIndex !== i){
+    for (var i = 0; i < contactList.length; i++) {
+        if (contactList[i].phone === phone && editingIndex !== i) {
             return false;
         }
     }
