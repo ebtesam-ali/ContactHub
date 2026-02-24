@@ -4,6 +4,10 @@ var favoriteList = [];
 
 var editingIndex = -1;
 
+var phoneNumber = /^(002|\+2)?01[0125]+\d{8}$/
+var username = /^[a-zA-Z\s]{2,50}$/
+var emailAddress = /^\w+@\w+\.com$/
+
 if (localStorage.getItem("contactList") !== null) {
     contactList = JSON.parse(localStorage.getItem("contactList"));
     DisplayContacts();
@@ -142,7 +146,7 @@ function DisplayContacts() {
     for (var i = 0; i < contactList.length; i++) {
         var contact = contactList[i];
         contactsHTML += `
-    <div class="col-6">
+    <div class="col-md-6">
         <div class="card rounded-4 shadow-sm border-0 h-100">
         <div class="card-body">
             <div class="d-flex align-items-center mb-1">
@@ -361,7 +365,7 @@ function DisplayFilteredContacts(filteredContacts) {
         for (var i = 0; i < filteredContacts.length; i++) {
             var contact = filteredContacts[i];
             document.getElementById("contacts").innerHTML += `
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="card rounded-4 shadow-sm border-0 h-100">
             <div class="card-body">
                 <div class="d-flex align-items-center mb-1">
@@ -437,4 +441,29 @@ function IsPhoneUnique(phone) {
         }
     }
     return true;
+}
+
+function PhoneValidate() {
+    var phone = contactPhone.value;
+    if(phoneNumber.test(phone)){
+        document.getElementById("contactPhoneError").classList.add("d-none")
+    }else{
+        document.getElementById("contactPhoneError").classList.remove("d-none")
+    }
+}
+function nameValidate() {
+    var user = contactName.value;
+    if(username.test(user)){
+        document.getElementById("contactnameError").classList.add("d-none")
+    }else{
+        document.getElementById("contactnameError").classList.remove("d-none")
+    }
+}
+function emailValidate() {
+    var usermail = contactEmail.value;
+    if(emailAddress.test(usermail)){
+        document.getElementById("contactEmailError").classList.add("d-none")
+    }else{
+        document.getElementById("contactEmailError").classList.remove("d-none")
+    }
 }

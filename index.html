@@ -108,11 +108,13 @@
                 >
                 <input
                   type="text"
+                  oninput="nameValidate()"
                   class="form-control"
                   id="contactName"
                   placeholder="Enter full name"
                   required
                 />
+                <p id="contactnameError" class="text-danger small mt-1 d-none">Name should contain only letters and spaces (2-50 characters)</p>
               </div>
               <div class="mb-3">
                 <label for="contactPhone" class="form-label"
@@ -120,11 +122,13 @@
                 >
                 <input
                   type="tel"
+                  oninput="PhoneValidate()"
                   class="form-control"
                   id="contactPhone"
                   placeholder="e.g., 01012345678"
                   required
                 />
+                <p id="contactPhoneError" class="text-danger small mt-1 d-none">Please enter a valid Egyptian phone number</p>
               </div>
               <div class="mb-3">
                 <label for="contactEmail" class="form-label"
@@ -132,10 +136,12 @@
                 >
                 <input
                   type="email"
+                  oninput="emailValidate()"
                   class="form-control"
                   id="contactEmail"
                   placeholder="name@example.com"
                 />
+                <p id="contactEmailError" class="text-danger small mt-1 d-none">Please enter a valid email address</p>
               </div>
               <div class="mb-3">
                 <label for="contactAddress" class="form-label">Address</label>
@@ -214,7 +220,7 @@
         <div class="row mt-5 font-14 mb-5 g-4">
           <div class="col-lg-4 col-6">
             <div
-              class="bg-white d-flex border-1 rounded-4 p-3 align-items-center shadow-sm"
+              class="bg-white transition d-flex border-1 rounded-4 p-3 align-items-center shadow-sm"
             >
               <div
                 class="me-3 bg-primary text-white p-3 rounded-3 align-self-center"
@@ -229,7 +235,7 @@
           </div>
           <div class="col-lg-4 col-6">
             <div
-              class="bg-white d-flex border-1 rounded-4 p-3 align-items-center shadow-sm"
+              class="bg-white transition d-flex border-1 rounded-4 p-3 align-items-center shadow-sm"
             >
               <div class="me-3 bg-orange text-white p-3 rounded-3">
                 <i class="fa-solid fa-star"></i>
@@ -242,7 +248,7 @@
           </div>
           <div class="col-lg-4 col-6">
             <div
-              class="bg-white d-flex border-1 rounded-4 p-3 align-items-center shadow-sm"
+              class="bg-white transition d-flex border-1 rounded-4 p-3 align-items-center shadow-sm"
             >
               <div class="me-3 bg-red text-white p-3 rounded-3">
                 <i class="fa-solid fa-heart-pulse"></i>
@@ -355,3 +361,7 @@
     ></script>
   </body>
 </html>
+
+<!-- 
+<p id="contactPhoneError" class="text-danger text-xs mt-1">Please enter a valid Egyptian phone number</p>
+-->
